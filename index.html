@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name :: Creative Developer :: Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="grid-bg"></div>
+    
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="counter" id="counter">000</div>
+            <div class="loading-text">INITIALIZING SYSTEM...</div>
+            <button class="start-btn" id="startBtn">[ ENTER SITE ]</button>
+            <div class="experience-note">
+                For the best experience<br>
+                Turn your sound on / Switch to desktop
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+        <!-- Navigation -->
+        <nav class="navbar" id="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="index.html">&lt;<span>/</span>DEV.PORTFOLIO<span>&gt;</span></a>
+                </div>
+                <div class="nav-menu" id="navMenu">
+                    <a href="index.html" class="nav-link active">Home</a>
+                    <a href="work.html" class="nav-link">Work</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="services.html" class="nav-link">Services</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <div class="welcome-text">&lt; HELLO WORLD /&gt;</div>
+                        <h1 class="glitch" data-text="I'M A CREATIVE DEVELOPER">
+                            I'M A <span class="accent">CREATIVE</span> DEVELOPER
+                        </h1>
+                        <p class="hero-description">
+                            Crafting immersive digital experiences at the intersection of art and technology. 
+                            Specialized in WebGL, Three.js, GSAP, and building award-winning interactive installations 
+                            that push the boundaries of web capabilities.
+                        </p>
+                        <div class="cta-buttons">
+                            <a href="work.html" class="cta-btn primary">
+                                <span>VIEW MY WORK</span>
+                                <div class="btn-glow"></div>
+                            </a>
+                            <a href="contact.html" class="cta-btn secondary">
+                                <span>GET IN TOUCH</span>
+                                <div class="btn-glow"></div>
+                            </a>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">50+</div>
+                                <div class="stat-label">Projects</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">15+</div>
+                                <div class="stat-label">Awards</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">8+</div>
+                                <div class="stat-label">Years</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="visual-container">
+                            <div class="rotating-ring ring-1"></div>
+                            <div class="rotating-ring ring-2"></div>
+                            <div class="rotating-ring ring-3"></div>
+                            <div class="center-icon">⚡</div>
+                            <div class="orbit-dots">
+                                <div class="dot dot-1"></div>
+                                <div class="dot dot-2"></div>
+                                <div class="dot dot-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="scroll-text">SCROLL</div>
+                <div class="scroll-line"></div>
+            </div>
+        </section>
+
+        <!-- Featured Work -->
+        <section class="featured-work">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="title-bracket">[</span>
+                        FEATURED WORK
+                        <span class="title-bracket">]</span>
+                    </h2>
+                    <a href="work.html" class="view-all">View All Projects →</a>
+                </div>
+                <div class="work-grid">
+                    <div class="work-card">
+                        <div class="work-image">
+                            <div class="image-placeholder">
+                                <div class="placeholder-icon">🎮</div>
+                            </div>
+                            <div class="work-overlay">
+                                <a href="work.html" class="work-link">VIEW PROJECT</a>
+                            </div>
+                        </div>
+                        <div class="work-info">
+                            <h3>Interactive Gaming Experience</h3>
+                            <p>WebGL • Three.js • GSAP</p>
+                            <div class="work-tags">
+                                <span class="tag">3D</span>
+                                <span class="tag">Interactive</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="work-card">
+                        <div class="work-image">
+                            <div class="image-placeholder">
+                                <div class="placeholder-icon">🌐</div>
+                            </div>
+                            <div class="work-overlay">
+                                <a href="work.html" class="work-link">VIEW PROJECT</a>
+                            </div>
+                        </div>
+                        <div class="work-info">
+                            <h3>E-Commerce Platform</h3>
+                            <p>React • Node.js • MongoDB</p>
+                            <div class="work-tags">
+                                <span class="tag">Web App</span>
+                                <span class="tag">Full Stack</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="work-card">
+                        <div class="work-image">
+                            <div class="image-placeholder">
+                                <div class="placeholder-icon">🎨</div>
+                            </div>
+                            <div class="work-overlay">
+                                <a href="work.html" class="work-link">VIEW PROJECT</a>
+                            </div>
+                        </div>
+                        <div class="work-info">
+                            <h3>Brand Identity System</h3>
+                            <p>Creative Direction • UI/UX</p>
+                            <div class="work-tags">
+                                <span class="tag">Branding</span>
+                                <span class="tag">Design</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="title-bracket">[</span>
+                        TECHNICAL EXPERTISE
+                        <span class="title-bracket">]</span>
+                    </h2>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Frontend</h3>
+                        <div class="skill-list">
+                            <div class="skill-item">
+                                <span>React / Next.js</span>
+                                <div class="skill-bar"><div class="skill-fill" style="width: 95%"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <span>Three.js / WebGL</span>
+                                <div class="skill-bar"><div class="skill-fill" style="width: 90%"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <span>GSAP / Animation</span>
+                                <div class="skill-bar"><div class="skill-fill" style="width: 92%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Backend</h3>
+                        <div class="skill-list">
+                            <div class="skill-item">
+                                <span>Node.js / Express</span>
+                                <div class="skill-bar"><div class="skill-fill" style="width: 88%"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <span>Python / Django</span>
+                                <div class="skill-bar"><div class="skill-fill" style="width: 85%"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <span>GraphQL / REST</span>
+                                <div class="skill-bar"><div class="skill-fill" style="width: 90%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Design</h3>
+                        <div class="skill-list">
+                            <div class="skill-item">
+                                <span>UI/UX Design</span>
+                                <div class="skill-bar"><div class="skill-fill" style="width: 93%"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <span>Figma / Sketch</span>
+                                <div class="skill-bar"><div class="skill-fill" style="width: 91%"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <span>Motion Graphics</span>
+                                <div class="skill-bar"><div class="skill-fill" style="width: 87%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Awards Section -->
+        <div class="awards-badges">
+            <div class="award-badge" title="Awwwards Site of the Day">
+                <div class="badge-text">AWWWARDS<br><small>SOTD</small></div>
+            </div>
+            <div class="award-badge" title="FWA of the Day">
+                <div class="badge-text">FWA<br><small>FOTD</small></div>
+            </div>
+            <div class="award-badge" title="CSS Design Awards">
+                <div class="badge-text">CSSDA<br><small>WINNER</small></div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>Connect</h3>
+                        <div class="social-links">
+                            <a href="#" class="social-link">GitHub</a>
+                            <a href="#" class="social-link">LinkedIn</a>
+                            <a href="#" class="social-link">Twitter</a>
+                            <a href="#" class="social-link">Dribbble</a>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Contact</h3>
+                        <p>hello@yourname.com</p>
+                        <p>+1 (555) 123-4567</p>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Location</h3>
+                        <p>San Francisco, CA</p>
+                        <p>Available Worldwide</p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Your Name. All rights reserved.</p>
+                    <p>Designed & Developed with ⚡</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Cookie Notice -->
+    <div class="cookie-notice" id="cookieNotice">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                I use Analytics to collect anonymous data about how visitors use my site. This helps me improve the website and provide a better user experience. You can choose to accept or reject cookies.
+            </div>
+            <div class="cookie-buttons">
+                <button class="cookie-btn accept" id="acceptCookies">Accept</button>
+                <button class="cookie-btn reject" id="rejectCookies">Reject</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

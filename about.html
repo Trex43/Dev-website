@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About :: Creative Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .about-hero {
+            padding: 160px 0 80px;
+            text-align: center;
+        }
+
+        .about-intro {
+            padding: 80px 0;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, var(--dark-bg), var(--darker-bg));
+            border: 2px solid var(--neon-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 180px;
+            box-shadow: 0 0 40px var(--neon-green);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--neon-pink) 0%, transparent 70%);
+            opacity: 0.1;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.1; }
+            50% { transform: scale(1.2); opacity: 0.2; }
+        }
+
+        .about-text h2 {
+            font-size: 48px;
+            color: var(--neon-pink);
+            font-family: 'Orbitron', monospace;
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px var(--neon-pink);
+        }
+
+        .about-text p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--neon-cyan);
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .highlight-text {
+            color: var(--neon-green);
+            font-weight: 700;
+        }
+
+        .experience-section {
+            padding: 100px 0;
+            background: rgba(10, 14, 39, 0.5);
+            border-top: 1px solid var(--grid-color);
+            border-bottom: 1px solid var(--grid-color);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--neon-green), var(--neon-pink));
+            box-shadow: 0 0 10px var(--neon-green);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 60px;
+            width: calc(50% - 40px);
+        }
+
+        .timeline-item:nth-child(odd) {
+            margin-left: auto;
+            padding-left: 40px;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-right: auto;
+            padding-right: 40px;
+            text-align: right;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--neon-pink);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--neon-pink);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            left: -10px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            right: -10px;
+        }
+
+        .timeline-content {
+            background: rgba(10, 14, 39, 0.8);
+            border: 1px solid var(--neon-cyan);
+            padding: 30px;
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            border-color: var(--neon-pink);
+            box-shadow: 0 10px 40px rgba(255, 16, 240, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .timeline-year {
+            font-size: 14px;
+            color: var(--neon-pink);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .timeline-title {
+            font-size: 22px;
+            color: var(--neon-green);
+            font-family: 'Orbitron', monospace;
+            margin-bottom: 10px;
+        }
+
+        .timeline-company {
+            font-size: 14px;
+            color: var(--neon-cyan);
+            margin-bottom: 15px;
+        }
+
+        .timeline-description {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--neon-cyan);
+            opacity: 0.8;
+        }
+
+        .values-section {
+            padding: 100px 0;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .value-card {
+            background: rgba(10, 14, 39, 0.5);
+            border: 1px solid var(--grid-color);
+            padding: 40px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--neon-green), var(--neon-cyan));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:hover {
+            border-color: var(--neon-green);
+            box-shadow: 0 15px 50px rgba(0, 255, 65, 0.3);
+            transform: translateY(-10px);
+        }
+
+        .value-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .value-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 20px var(--neon-pink));
+        }
+
+        .value-title {
+            font-size: 24px;
+            color: var(--neon-green);
+            font-family: 'Orbitron', monospace;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px var(--neon-green);
+        }
+
+        .value-description {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--neon-cyan);
+            opacity: 0.8;
+        }
+
+        .tools-section {
+            padding: 100px 0;
+            background: rgba(10, 14, 39, 0.5);
+            border-top: 1px solid var(--grid-color);
+            border-bottom: 1px solid var(--grid-color);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .tool-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(5, 8, 17, 0.5);
+            border: 1px solid var(--grid-color);
+            transition: var(--transition);
+        }
+
+        .tool-item:hover {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .tool-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .tool-name {
+            font-size: 12px;
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 968px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 40px !important;
+                padding-right: 0 !important;
+                text-align: left !important;
+            }
+
+            .timeline-item .timeline-dot {
+                left: -10px !important;
+                right: auto !important;
+            }
+
+            .profile-image {
+                height: 350px;
+                font-size: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-bg"></div>
+
+    <div class="main-content visible">
+        <!-- Navigation -->
+        <nav class="navbar" id="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="index.html">&lt;<span>/</span>DEV.PORTFOLIO<span>&gt;</span></a>
+                </div>
+                <div class="nav-menu" id="navMenu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="work.html" class="nav-link">Work</a>
+                    <a href="about.html" class="nav-link active">About</a>
+                    <a href="services.html" class="nav-link">Services</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <header class="about-hero">
+            <div class="container">
+                <h1 class="page-title glitch" data-text="ABOUT ME">ABOUT <span style="color: var(--neon-pink);">ME</span></h1>
+                <p class="page-subtitle">
+                    Passionate developer, creative thinker, and problem solver dedicated to 
+                    crafting exceptional digital experiences.
+                </p>
+            </div>
+        </header>
+
+        <!-- About Intro -->
+        <section class="about-intro">
+            <div class="container">
+                <div class="about-content">
+                    <div class="profile-image">
+                        👨‍💻
+                    </div>
+                    <div class="about-text">
+                        <h2>Creative Developer & Digital Artist</h2>
+                        <p>
+                            Hello! I'm a <span class="highlight-text">creative developer</span> with over 8 years 
+                            of experience in building cutting-edge web applications and immersive digital experiences. 
+                            My journey in tech started with a curiosity about how things work and evolved into a passion 
+                            for creating beautiful, functional solutions.
+                        </p>
+                        <p>
+                            I specialize in <span class="highlight-text">front-end development</span>, 
+                            <span class="highlight-text">3D web experiences</span>, and 
+                            <span class="highlight-text">interactive installations</span>. 
+                            My work has been recognized with multiple awards from Awwwards, FWA, and CSS Design Awards.
+                        </p>
+                        <p>
+                            When I'm not coding, you'll find me exploring new technologies, contributing to open-source 
+                            projects, or experimenting with generative art and creative coding. I believe in the power 
+                            of technology to transform ideas into reality and create meaningful connections.
+                        </p>
+                        <p>
+                            Currently based in <span class="highlight-text">San Francisco</span>, I work with clients 
+                            worldwide to bring their digital visions to life. Let's create something amazing together!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Timeline -->
+        <section class="experience-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="title-bracket">[</span>
+                        EXPERIENCE
+                        <span class="title-bracket">]</span>
+                    </h2>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2022 - Present</div>
+                            <h3 class="timeline-title">Lead Creative Developer</h3>
+                            <div class="timeline-company">Digital Innovation Lab</div>
+                            <p class="timeline-description">
+                                Leading a team of developers to create award-winning digital experiences. 
+                                Specializing in WebGL, Three.js, and immersive web technologies.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2019 - 2022</div>
+                            <h3 class="timeline-title">Senior Front-End Developer</h3>
+                            <div class="timeline-company">Tech Innovations Inc.</div>
+                            <p class="timeline-description">
+                                Developed complex web applications using React, Vue, and modern JavaScript. 
+                                Mentored junior developers and established best practices.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2017 - 2019</div>
+                            <h3 class="timeline-title">Full Stack Developer</h3>
+                            <div class="timeline-company">StartUp Studio</div>
+                            <p class="timeline-description">
+                                Built full-stack applications from concept to deployment. Worked with Node.js, 
+                                MongoDB, and cloud infrastructure.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2015 - 2017</div>
+                            <h3 class="timeline-title">Junior Web Developer</h3>
+                            <div class="timeline-company">Creative Agency Co.</div>
+                            <p class="timeline-description">
+                                Started my professional journey creating responsive websites and learning 
+                                modern web development practices.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Section -->
+        <section class="values-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="title-bracket">[</span>
+                        CORE VALUES
+                        <span class="title-bracket">]</span>
+                    </h2>
+                </div>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">💡</div>
+                        <h3 class="value-title">Innovation</h3>
+                        <p class="value-description">
+                            Always pushing boundaries and exploring new technologies to create 
+                            cutting-edge solutions.
+                        </p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">🎯</div>
+                        <h3 class="value-title">Excellence</h3>
+                        <p class="value-description">
+                            Committed to delivering high-quality work with attention to every detail 
+                            and best practices.
+                        </p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">🤝</div>
+                        <h3 class="value-title">Collaboration</h3>
+                        <p class="value-description">
+                            Believing in the power of teamwork and open communication to achieve 
+                            extraordinary results.
+                        </p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">🚀</div>
+                        <h3 class="value-title">Growth</h3>
+                        <p class="value-description">
+                            Continuously learning and adapting to stay ahead in the ever-evolving 
+                            tech landscape.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tools & Technologies -->
+        <section class="tools-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="title-bracket">[</span>
+                        TOOLS & TECH
+                        <span class="title-bracket">]</span>
+                    </h2>
+                </div>
+                <div class="tools-grid">
+                    <div class="tool-item">
+                        <div class="tool-icon">⚛️</div>
+                        <div class="tool-name">React</div>
+                    </div>
+                    <div class="tool-item">
+                        <div class="tool-icon">📦</div>
+                        <div class="tool-name">Three.js</div>
+                    </div>
+                    <div class="tool-item">
+                        <div class="tool-icon">🟢</div>
+                        <div class="tool-name">Node.js</div>
+                    </div>
+                    <div class="tool-item">
+                        <div class="tool-icon">🎨</div>
+                        <div class="tool-name">GSAP</div>
+                    </div>
+                    <div class="tool-item">
+                        <div class="tool-icon">🔧</div>
+                        <div class="tool-name">Webpack</div>
+                    </div>
+                    <div class="tool-item">
+                        <div class="tool-icon">🎭</div>
+                        <div class="tool-name">Figma</div>
+                    </div>
+                    <div class="tool-item">
+                        <div class="tool-icon">🔥</div>
+                        <div class="tool-name">Firebase</div>
+                    </div>
+                    <div class="tool-item">
+                        <div class="tool-icon">🐳</div>
+                        <div class="tool-name">Docker</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Awards Badges -->
+        <div class="awards-badges">
+            <div class="award-badge">
+                <div class="badge-text">AWWWARDS<br><small>SOTD</small></div>
+            </div>
+            <div class="award-badge">
+                <div class="badge-text">FWA<br><small>FOTD</small></div>
+            </div>
+            <div class="award-badge">
+                <div class="badge-text">CSSDA<br><small>WINNER</small></div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>Connect</h3>
+                        <div class="social-links">
+                            <a href="#" class="social-link">GitHub</a>
+                            <a href="#" class="social-link">LinkedIn</a>
+                            <a href="#" class="social-link">Twitter</a>
+                            <a href="#" class="social-link">Dribbble</a>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Contact</h3>
+                        <p>hello@yourname.com</p>
+                        <p>+1 (555) 123-4567</p>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Location</h3>
+                        <p>San Francisco, CA</p>
+                        <p>Available Worldwide</p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Your Name. All rights reserved.</p>
+                    <p>Designed & Developed with ⚡</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

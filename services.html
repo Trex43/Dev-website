@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services :: What I Offer</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .services-hero {
+            padding: 160px 0 80px;
+            text-align: center;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            padding: 80px 0;
+        }
+
+        .service-card {
+            background: rgba(10, 14, 39, 0.5);
+            border: 1px solid var(--grid-color);
+            padding: 50px 40px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--neon-green), var(--neon-pink), var(--neon-cyan));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--neon-pink);
+            box-shadow: 0 20px 60px rgba(255, 16, 240, 0.4);
+            transform: translateY(-15px);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            font-size: 80px;
+            margin-bottom: 30px;
+            display: block;
+            filter: drop-shadow(0 0 30px var(--neon-cyan));
+        }
+
+        .service-title {
+            font-size: 28px;
+            color: var(--neon-green);
+            font-family: 'Orbitron', monospace;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px var(--neon-green);
+        }
+
+        .service-description {
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--neon-cyan);
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .service-features li {
+            font-size: 13px;
+            color: var(--neon-cyan);
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            opacity: 0.8;
+        }
+
+        .service-features li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--neon-pink);
+            font-size: 18px;
+        }
+
+        .service-price {
+            font-size: 14px;
+            color: var(--neon-pink);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .service-cta {
+            padding: 14px 35px;
+            background: transparent;
+            border: 2px solid var(--neon-green);
+            color: var(--neon-green);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .service-cta:hover {
+            background: var(--neon-green);
+            color: var(--darker-bg);
+            box-shadow: 0 0 25px var(--neon-green);
+        }
+
+        .process-section {
+            padding: 100px 0;
+            background: rgba(10, 14, 39, 0.5);
+            border-top: 1px solid var(--grid-color);
+            border-bottom: 1px solid var(--grid-color);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            padding: 40px 30px;
+            background: rgba(5, 8, 17, 0.5);
+            border: 1px solid var(--grid-color);
+            transition: var(--transition);
+        }
+
+        .process-step:hover {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 15px 40px rgba(0, 240, 255, 0.3);
+            transform: translateY(-10px);
+        }
+
+        .process-number {
+            font-size: 48px;
+            color: var(--neon-pink);
+            font-family: 'Orbitron', monospace;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px var(--neon-pink);
+            line-height: 1;
+        }
+
+        .process-title {
+            font-size: 20px;
+            color: var(--neon-green);
+            font-family: 'Orbitron', monospace;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px var(--neon-green);
+        }
+
+        .process-description {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--neon-cyan);
+            opacity: 0.8;
+        }
+
+        .pricing-section {
+            padding: 100px 0;
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .pricing-card {
+            background: rgba(10, 14, 39, 0.5);
+            border: 2px solid var(--grid-color);
+            padding: 50px 40px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 40px rgba(255, 16, 240, 0.3);
+            transform: scale(1.05);
+        }
+
+        .pricing-card:hover {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 20px 60px rgba(0, 240, 255, 0.4);
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -15px;
+            right: 30px;
+            background: var(--neon-pink);
+            color: var(--darker-bg);
+            padding: 8px 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 0 20px var(--neon-pink);
+        }
+
+        .pricing-name {
+            font-size: 24px;
+            color: var(--neon-green);
+            font-family: 'Orbitron', monospace;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px var(--neon-green);
+        }
+
+        .pricing-price {
+            font-size: 56px;
+            color: var(--neon-pink);
+            font-family: 'Orbitron', monospace;
+            font-weight: 900;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px var(--neon-pink);
+        }
+
+        .pricing-period {
+            font-size: 14px;
+            color: var(--neon-cyan);
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 40px 0;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            font-size: 14px;
+            color: var(--neon-cyan);
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            opacity: 0.9;
+            border-bottom: 1px solid rgba(0, 255, 65, 0.1);
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--neon-green);
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .pricing-cta {
+            width: 100%;
+            padding: 18px 40px;
+            background: transparent;
+            border: 2px solid var(--neon-green);
+            color: var(--neon-green);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: var(--transition);
+            margin-top: 20px;
+        }
+
+        .pricing-cta:hover {
+            background: var(--neon-green);
+            color: var(--darker-bg);
+            box-shadow: 0 0 30px var(--neon-green);
+        }
+
+        .faq-section {
+            padding: 100px 0;
+            background: rgba(10, 14, 39, 0.5);
+            border-top: 1px solid var(--grid-color);
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 25px;
+            border: 1px solid var(--grid-color);
+            background: rgba(5, 8, 17, 0.5);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item:hover {
+            border-color: var(--neon-cyan);
+        }
+
+        .faq-question {
+            padding: 25px 30px;
+            cursor: pointer;
+            font-size: 16px;
+            color: var(--neon-green);
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: rgba(0, 255, 65, 0.05);
+        }
+
+        .faq-icon {
+            font-size: 24px;
+            color: var(--neon-pink);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer-content {
+            padding: 0 30px 25px;
+            font-size: 14px;
+            line-height: 1.8;
+            color: var(--neon-cyan);
+            opacity: 0.9;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        @media (max-width: 768px) {
+            .services-grid,
+            .pricing-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-bg"></div>
+
+    <div class="main-content visible">
+        <!-- Navigation -->
+        <nav class="navbar" id="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="index.html">&lt;<span>/</span>DEV.PORTFOLIO<span>&gt;</span></a>
+                </div>
+                <div class="nav-menu" id="navMenu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="work.html" class="nav-link">Work</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="services.html" class="nav-link active">Services</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <header class="services-hero">
+            <div class="container">
+                <h1 class="page-title glitch" data-text="SERVICES">MY <span style="color: var(--neon-pink);">SERVICES</span></h1>
+                <p class="page-subtitle">
+                    Comprehensive digital solutions tailored to transform your vision into reality 
+                    with cutting-edge technology and creative excellence.
+                </p>
+            </div>
+        </header>
+
+        <!-- Services Grid -->
+        <section class="container">
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <span class="service-icon">🎨</span>
+                    <h3 class="service-title">Web Development</h3>
+                    <p class="service-description">
+                        Custom websites and web applications built with modern frameworks and 
+                        best practices for optimal performance and user experience.
+                    </p>
+                    <ul class="service-features">
+                        <li>Responsive Design</li>
+                        <li>React/Vue/Angular Development</li>
+                        <li>Progressive Web Apps (PWA)</li>
+                        <li>E-commerce Solutions</li>
+                        <li>Performance Optimization</li>
+                    </ul>
+                    <div class="service-price">Starting at $5,000</div>
+                    <a href="contact.html" class="service-cta">Get Started</a>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <span class="service-icon">📦</span>
+                    <h3 class="service-title">3D & WebGL</h3>
+                    <p class="service-description">
+                        Immersive 3D experiences and interactive visualizations using Three.js, 
+                        WebGL, and cutting-edge web graphics technologies.
+                    </p>
+                    <ul class="service-features">
+                        <li>3D Product Configurators</li>
+                        <li>Interactive 3D Experiences</li>
+                        <li>WebGL Games & Animations</li>
+                        <li>Virtual Showrooms</li>
+                        <li>AR/VR Web Experiences</li>
+                    </ul>
+                    <div class="service-price">Starting at $8,000</div>
+                    <a href="contact.html" class="service-cta">Get Started</a>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <span class="service-icon">💼</span>
+                    <h3 class="service-title">Full Stack Development</h3>
+                    <p class="service-description">
+                        End-to-end application development including backend infrastructure, 
+                        databases, APIs, and seamless front-end integration.
+                    </p>
+                    <ul class="service-features">
+                        <li>RESTful & GraphQL APIs</li>
+                        <li>Database Design & Management</li>
+                        <li>Cloud Infrastructure (AWS/Azure)</li>
+                        <li>Authentication & Security</li>
+                        <li>DevOps & CI/CD</li>
+                    </ul>
+                    <div class="service-price">Starting at $10,000</div>
+                    <a href="contact.html" class="service-cta">Get Started</a>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <span class="service-icon">🎯</span>
+                    <h3 class="service-title">UI/UX Design</h3>
+                    <p class="service-description">
+                        User-centered design solutions that combine aesthetics with functionality 
+                        to create intuitive and engaging digital experiences.
+                    </p>
+                    <ul class="service-features">
+                        <li>User Research & Testing</li>
+                        <li>Wireframing & Prototyping</li>
+                        <li>Design Systems</li>
+                        <li>Brand Identity Design</li>
+                        <li>Motion & Interaction Design</li>
+                    </ul>
+                    <div class="service-price">Starting at $4,000</div>
+                    <a href="contact.html" class="service-cta">Get Started</a>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <span class="service-icon">📱</span>
+                    <h3 class="service-title">Mobile Development</h3>
+                    <p class="service-description">
+                        Cross-platform mobile applications that deliver native-like performance 
+                        and user experiences on iOS and Android.
+                    </p>
+                    <ul class="service-features">
+                        <li>React Native Development</li>
+                        <li>Flutter Applications</li>
+                        <li>App Store Deployment</li>
+                        <li>Push Notifications</li>
+                        <li>Offline Functionality</li>
+                    </ul>
+                    <div class="service-price">Starting at $12,000</div>
+                    <a href="contact.html" class="service-cta">Get Started</a>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card">
+                    <span class="service-icon">🔧</span>
+                    <h3 class="service-title">Consulting & Support</h3>
+                    <p class="service-description">
+                        Expert technical guidance, code reviews, architecture planning, and 
+                        ongoing maintenance to ensure your projects succeed.
+                    </p>
+                    <ul class="service-features">
+                        <li>Technical Consulting</li>
+                        <li>Code Audits & Reviews</li>
+                        <li>Performance Optimization</li>
+                        <li>Maintenance & Support</li>
+                        <li>Team Training</li>
+                    </ul>
+                    <div class="service-price">Starting at $150/hour</div>
+                    <a href="contact.html" class="service-cta">Get Started</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="process-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="title-bracket">[</span>
+                        MY PROCESS
+                        <span class="title-bracket">]</span>
+                    </h2>
+                </div>
+                <div class="process-grid">
+                    <div class="process-step">
+                        <div class="process-number">01</div>
+                        <h3 class="process-title">Discovery</h3>
+                        <p class="process-description">
+                            Understanding your goals, requirements, and target audience to create 
+                            a solid foundation for the project.
+                        </p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-number">02</div>
+                        <h3 class="process-title">Planning</h3>
+                        <p class="process-description">
+                            Detailed project planning, wireframing, and technical architecture 
+                            to ensure smooth execution.
+                        </p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-number">03</div>
+                        <h3 class="process-title">Design</h3>
+                        <p class="process-description">
+                            Creating beautiful, user-focused designs that align with your brand 
+                            and delight your users.
+                        </p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-number">04</div>
+                        <h3 class="process-title">Development</h3>
+                        <p class="process-description">
+                            Building robust, scalable solutions using modern technologies and 
+                            industry best practices.
+                        </p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-number">05</div>
+                        <h3 class="process-title">Testing</h3>
+                        <p class="process-description">
+                            Rigorous quality assurance and testing to ensure everything works 
+                            flawlessly across all devices.
+                        </p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-number">06</div>
+                        <h3 class="process-title">Launch</h3>
+                        <p class="process-description">
+                            Deploying your project with ongoing support to ensure a successful 
+                            launch and long-term success.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="title-bracket">[</span>
+                        FREQUENTLY ASKED QUESTIONS
+                        <span class="title-bracket">]</span>
+                    </h2>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How long does a typical project take?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Project timelines vary based on scope and complexity. A simple website might take 4-6 weeks, 
+                                while a complex web application could take 3-6 months. I'll provide a detailed timeline 
+                                during our initial consultation.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What is your payment structure?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                I typically work with a 50% deposit to begin work, 25% at the midpoint milestone, 
+                                and 25% upon project completion. For larger projects, we can arrange a custom payment 
+                                schedule that works for both parties.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Do you offer ongoing support and maintenance?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Yes! I offer various support and maintenance packages to ensure your project continues 
+                                to perform optimally. This includes bug fixes, updates, security patches, and feature 
+                                enhancements as needed.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Can you work with my existing team?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Absolutely! I frequently collaborate with in-house teams, agencies, and other 
+                                freelancers. I'm comfortable working as part of a larger team or leading development 
+                                efforts as needed.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What technologies do you specialize in?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                I specialize in React, Vue, Node.js, Three.js, WebGL, and modern JavaScript. I'm also 
+                                experienced with Python, GraphQL, MongoDB, PostgreSQL, AWS, and various other technologies. 
+                                I stay current with the latest industry trends and tools.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Awards Badges -->
+        <div class="awards-badges">
+            <div class="award-badge">
+                <div class="badge-text">AWWWARDS<br><small>SOTD</small></div>
+            </div>
+            <div class="award-badge">
+                <div class="badge-text">FWA<br><small>FOTD</small></div>
+            </div>
+            <div class="award-badge">
+                <div class="badge-text">CSSDA<br><small>WINNER</small></div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>Connect</h3>
+                        <div class="social-links">
+                            <a href="#" class="social-link">GitHub</a>
+                            <a href="#" class="social-link">LinkedIn</a>
+                            <a href="#" class="social-link">Twitter</a>
+                            <a href="#" class="social-link">Dribbble</a>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Contact</h3>
+                        <p>hello@yourname.com</p>
+                        <p>+1 (555) 123-4567</p>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Location</h3>
+                        <p>San Francisco, CA</p>
+                        <p>Available Worldwide</p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Your Name. All rights reserved.</p>
+                    <p>Designed & Developed with ⚡</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
